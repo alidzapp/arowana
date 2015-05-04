@@ -6,7 +6,6 @@
   <h1>
     <%= @paste.name %>
     <div class="pull-right">
-      <%= link_to "Comment", new_comment_path, class: "btn btn-default" %>
       <%= link_to "Edit", edit_paste_path(@paste), class: "btn btn-default" %>
     </div>
   </h1>
@@ -15,4 +14,13 @@
   <pre class="paste-body">
     <%= @paste.body %>
   </pre>
+  <h3>Comments</h3>
+  <% unless @paste.comments.empty? %>
+    <ul>
+      <% @paste.comments.each do |c| %>
+        <li><%= c.body %> - <b><%= c.user.email %></b> (<%= c.created_at.to_formatted_s(:short) %>)</li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= render "comments/form" %>
 </div>

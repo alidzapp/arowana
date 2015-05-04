@@ -2,6 +2,10 @@ class PastesController < InheritedResources::Base
   before_action :set_pastes
   before_action :set_paste, only: [:show, :edit, :update, :destroy]
 
+  def show
+    @comment = current_user.comments.build
+  end
+
   def new
     @paste = current_user.pastes.build
   end
