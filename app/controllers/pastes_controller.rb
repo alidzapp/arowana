@@ -23,11 +23,15 @@ class PastesController < InheritedResources::Base
   end
 
   def set_pastes
-    @pastes = Paste.order(:created_at).page params[:page]
+    @pastes = Paste.order(:created_at).unexpired.page params[:page]
   end
 
   def set_paste
-    @paste = Paste.find(params[:id])
+    begin
+      @paste = Paste.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to pastes_path
+    end
   end
 end
 

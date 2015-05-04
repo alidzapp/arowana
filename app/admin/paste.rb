@@ -9,5 +9,6 @@ ActiveAdmin.register Paste do
       f.input :expires_at
       f.input :body
     end
+    f.submit
   end
 end

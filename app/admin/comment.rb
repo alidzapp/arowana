@@ -7,5 +7,6 @@ ActiveAdmin.register Comment do
       f.input :paste_id, as: :select, collection: Paste.all.map{|p| [p.name, p.id]}
       f.input :body
     end
+    f.submit
   end
 end
