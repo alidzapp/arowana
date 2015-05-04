@@ -17,6 +17,8 @@
 //= require select2
 //= require_tree .
 
+Turbolinks.enableProgressBar();
+
 $(document).on('ready page:load', function () {
   $('.select').select2();
 
