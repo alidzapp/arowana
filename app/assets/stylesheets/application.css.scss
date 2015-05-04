@@ -41,3 +41,8 @@ tr td:last-child:after {
         @include make-md-column-offset(4);
     }
 }
+
+.paste-info {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

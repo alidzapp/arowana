@@ -9,8 +9,11 @@
       <%= link_to "Edit", edit_paste_path(@paste), class: "btn btn-default" %>
     </div>
   </h1>
-  <span class="language subtitle">Language: <%= @paste.language %></span>
-  <span class="expires-at subtitle">Expires: <%= @paste.expires_at.to_formatted_s(:short) unless @paste.expires_at.nil? %></span>
+  <div class="paste-info">
+    <span class="submitted-by subtitle">Submitted by: <%= @paste.user_email %></span>
+    <span class="language subtitle">Language: <%= @paste.language %></span>
+    <span class="expires-at subtitle">Expires: <%= @paste.expires_at.to_formatted_s(:short) unless @paste.expires_at.nil? %></span>
+  </div>
   <pre class="paste-body">
     <%= @paste.body %>
   </pre>
@@ -18,7 +21,7 @@
   <% unless @paste.comments.empty? %>
     <ul>
       <% @paste.comments.each do |c| %>
-        <li><%= c.body %> - <b><%= c.user.email %></b> (<%= c.created_at.to_formatted_s(:short) %>)</li>
+        <li><%= comment_line(c).html_safe %></li>
       <% end %>
     </ul>
   <% end %>

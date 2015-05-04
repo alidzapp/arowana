@@ -1,3 +1,9 @@
 === Arowana
 
 Pastebin clone using Ruby on Rails
+
+==== API
+
+Post a file from curl using:
+
+  curl -F "api_key=123" -F "file=@/tmp/test" localhost:3000/api

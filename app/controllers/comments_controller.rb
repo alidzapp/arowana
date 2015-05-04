@@ -1,4 +1,6 @@
 class CommentsController < InheritedResources::Base
+  before_filter :authenticate_user!
+  
   def create
     @comment = current_user.comments.build(comment_params)
 

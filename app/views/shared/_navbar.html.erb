@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to root_path, class: "navbar-brand" do %>
-        arowana
+        <i class="fa fa-clipboard"></i> arowana
       <% end %>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
@@ -19,6 +19,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right" data-no-turbolink>
         <% if user_signed_in? %>
+          <li><%= link_to('Profile', edit_user_registration_path) %></li>
           <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
         <% else %>
           <li><%= link_to('Login', new_user_session_path)  %></li>
