@@ -32,3 +32,12 @@ tr td:last-child:after {
 .subtitle {
     display: block; 
 }
+
+.devise-wrapper {
+    @include make-row();
+
+    .devise-box {
+        @include make-md-column(4);
+        @include make-md-column-offset(4);
+    }
+}

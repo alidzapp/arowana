@@ -5,7 +5,10 @@
 <div class="page-two">
   <h1>
     <%= @paste.name %>
-    <%= link_to "Edit", edit_paste_path(@paste), class: "btn btn-default pull-right" %>
+    <div class="pull-right">
+      <%= link_to "Comment", new_comment_path, class: "btn btn-default" %>
+      <%= link_to "Edit", edit_paste_path(@paste), class: "btn btn-default" %>
+    </div>
   </h1>
   <span class="language subtitle">Language: <%= @paste.language %></span>
   <span class="expires-at subtitle">Expires: <%= @paste.expires_at.to_formatted_s(:short) unless @paste.expires_at.nil? %></span>
