@@ -26,7 +26,7 @@ $(document).on('ready page:load', function () {
     Turbolinks.visit($(this).data("href"));
   });
 
-  $('pre code').each(function(i, block) {
+  $('.paste-body').each(function(i, block) {
     hljs.highlightBlock(block);
   });
 });

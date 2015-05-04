@@ -3,13 +3,13 @@
 </div>
 
 <div class="page-two">
-  <%= link_to "Edit", edit_paste_path(@paste), class: "btn btn-default" %>
-  <h1><%= @paste.name %></h1>
-  <span class="language"><%= @paste.language %></span>
-  <span class="expires-at"><%= @paste.expires_at.to_formatted_s(:short) unless @paste.expires_at.nil? %></span>
-  <pre>
-    <code class="<%= @paste.language %>">
-      <%= @paste.body %>
-    </code>
+  <h1>
+    <%= @paste.name %>
+    <%= link_to "Edit", edit_paste_path(@paste), class: "btn btn-default pull-right" %>
+  </h1>
+  <span class="language subtitle">Language: <%= @paste.language %></span>
+  <span class="expires-at subtitle">Expires: <%= @paste.expires_at.to_formatted_s(:short) unless @paste.expires_at.nil? %></span>
+  <pre class="paste-body">
+    <%= @paste.body %>
   </pre>
 </div>
