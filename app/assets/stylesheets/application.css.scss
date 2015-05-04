@@ -1,0 +1,30 @@
+@import "bootstrap-custom";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "select2";
+@import "select2-bootstrap";
+@import "highlightjs";
+
+.content-wrapper {
+    margin-top: 70px;
+}
+
+.book {
+    @include make-row();
+}
+
+.page-one {
+    @include make-md-column(6);
+}
+
+.page-two {
+    @include make-md-column(6);
+}
+
+tr td:last-child:after {
+    font-family: FontAwesome;
+    content: "\f054";
+    float: right;
+}

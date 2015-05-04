@@ -1,0 +1,24 @@
+<h1>Pastes</h1>
+
+<table class="table table-hover pastes-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Comments</th>
+      <th>Submitted By</th>
+      <th>Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pastes.each do |p| %>
+      <tr class="paste-link" data-href="<%= paste_path(p) %>">
+        <td><%= p.name %></td>
+        <td><%= p.comments.count %></td>
+        <td><%= p.user.email %></td>
+        <td><%= paste_expires_in(p) unless p.expires_at.nil? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @pastes, :theme => 'twitter-bootstrap-3' %>

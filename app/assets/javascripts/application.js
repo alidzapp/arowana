@@ -13,4 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require highlightjs
+//= require select2
 //= require_tree .
+
+$(document).on('ready page:load', function () {
+  $('.select').select2();
+
+  $('.paste-link').click(function() {
+    Turbolinks.visit($(this).data("href"));
+  });
+
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});

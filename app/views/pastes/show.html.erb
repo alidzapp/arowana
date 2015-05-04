@@ -1,0 +1,15 @@
+<div class="page-one">
+  <%= render "list" %>
+</div>
+
+<div class="page-two">
+  <%= link_to "Edit", edit_paste_path(@paste), class: "btn btn-default" %>
+  <h1><%= @paste.name %></h1>
+  <span class="language"><%= @paste.language %></span>
+  <span class="expires-at"><%= @paste.expires_at.to_formatted_s(:short) unless @paste.expires_at.nil? %></span>
+  <pre>
+    <code class="<%= @paste.language %>">
+      <%= @paste.body %>
+    </code>
+  </pre>
+</div>
