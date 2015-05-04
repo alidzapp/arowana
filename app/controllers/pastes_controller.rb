@@ -1,6 +1,6 @@
 class PastesController < InheritedResources::Base
   before_action :set_pastes
-  before_action :set_paste, only: [:show, :edit, :create, :destroy]
+  before_action :set_paste, only: [:show, :edit, :update, :destroy]
 
   def new
     @paste = current_user.pastes.build
