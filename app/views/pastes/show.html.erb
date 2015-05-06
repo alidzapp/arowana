@@ -18,12 +18,6 @@
     <%= @paste.body %>
   </pre>
   <h3>Comments</h3>
-  <% unless @paste.comments.empty? %>
-    <ul>
-      <% @paste.comments.each do |c| %>
-        <li><%= comment_line(c).html_safe %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render partial: "comments/list", locals: { comments: @paste.comments } %>
   <%= render "comments/form" %>
 </div>

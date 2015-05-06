@@ -20,6 +20,7 @@ gem 'mysql2'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'kaminari', '~> 0.16.3'
 gem 'bootstrap-kaminari-views'
+gem 'gravtastic'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-highlightjs', '~> 8.5.0'

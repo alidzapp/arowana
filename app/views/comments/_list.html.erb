@@ -1,0 +1,17 @@
+<% if comments.blank? %>
+
+<% else %>
+  <div class="comments">
+    <% comments.each do |comment| %>
+      <div class="media">
+        <div class="media-left">
+          <%= image_tag comment.user.gravatar_url, secure: true %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= "#{comment.user_email} - #{comment.created_at.to_formatted_s(:short)}" %></h4>
+          <%= comment.body %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
