@@ -1,4 +1,6 @@
 class PastesController < InheritedResources::Base
+  ActionController::Live
+
   before_action :set_pastes
   before_action :set_paste, only: [:show, :edit, :update, :destroy]
 

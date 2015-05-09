@@ -2,7 +2,11 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 
-listen "/tmp/unicorn_arowana.sock"
+if ENV["RAILS_ENV"] == "production"
+  listen "/tmp/unicorn_arowana.sock", tcp_nopush: false
+else
+  listen 3000, tcp_nopush: false
+end
 
 stderr_path "log/unicorn.stderr.log"
 stdout_path "log/unicorn.stdout.log"

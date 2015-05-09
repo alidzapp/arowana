@@ -26,6 +26,10 @@ RSpec.describe Paste, type: :model do
   end
 
   describe "#expires_at" do
+    context "expires in the future" do
+      paste = FactoryGirl::build(:paste, expires_at: Time.now )
 
+      it { expect(subject).to be_invalid }
+    end
   end
 end
