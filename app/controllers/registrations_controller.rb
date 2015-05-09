@@ -1,4 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
+  def new
+    redirect_to new_user_session_path, flash: { danger: 'Registration is disabled.' }
+  end
+
+  def create
+    redirect_to new_user_session_path, flash: { danger: 'Registration is disabled.' }
+  end
+
   private
 
   def sign_up_params
