@@ -21,15 +21,9 @@ class PastesController < InheritedResources::Base
       head :bad_request
     end
 
-    new_paste = @user.pastes.build
-    new_paste.body_from_file(params[:file])
+    ApiRequestJob.perform_later(@user.id, params[:file].read)
 
-    begin
-      new_paste.save!
-      head 200
-    rescue ActiveRecord::RecordInvalid
-      head :bad_request
-    end
+    head 200
   end
 
   def create

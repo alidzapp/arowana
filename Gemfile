@@ -24,6 +24,8 @@ gem 'gravtastic'
 gem 'foreman'
 gem 'thin', require: false
 gem 'faye'
+gem 'sidekiq'
+gem 'sinatra', require: nil
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-highlightjs', '~> 8.5.0'
@@ -36,6 +38,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-rails'
+  gem 'capistrano-sidekiq'
 end
 
 group :development, :test do

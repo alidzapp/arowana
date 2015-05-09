@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   match 'api', to: 'pastes#api', via: [:post]
   resources :comments
   resources :pastes 

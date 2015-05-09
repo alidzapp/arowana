@@ -5,6 +5,7 @@ require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/sidekiq'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.2'
@@ -14,5 +15,6 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
 set :bundle_binstubs, -> { shared_path.join('bin') }
+set :pty, false
 
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

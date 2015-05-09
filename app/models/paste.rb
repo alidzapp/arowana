@@ -19,10 +19,6 @@ class Paste < ActiveRecord::Base
     self.user.email
   end
 
-  def body_from_file(file)
-    self.body = file.read
-  end
-
   private
 
   def expires_at_is_in_the_future
