@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include Gravtastic
   
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
   gravtastic
