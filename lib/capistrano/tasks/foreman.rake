@@ -2,8 +2,8 @@ namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export do
     on roles(:all) do
-      within "#{release_path}" do
-        execute :rbenv, :sudo, "foreman export upstart /etc/init -a arowana -u deploy -l #{shared_path}/log -d /home/deploy/apps/arowana/current"
+      within "#{shared_path}" do
+        execute :rbenv, :sudo, "./bin/foreman export upstart /etc/init -a arowana -u deploy -l #{shared_path}/log -d /home/deploy/apps/arowana/current"
       end
     end
   end
