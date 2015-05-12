@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Paste, type: :model do
-  let(:paste) { build(:paste) }
+  let(:paste) { FactoryGirl.create :paste }
 
   describe "relationships" do
     it { should belong_to(:user) }
@@ -26,10 +26,22 @@ RSpec.describe Paste, type: :model do
   end
 
   describe "#expires_at" do
-    context "expires in the future" do
-      paste = FactoryGirl::build(:paste, expires_at: Time.now )
+    it "expires in the future" do
+      paste.expires_at = Time.now - 1.week
 
-      it { expect(subject).to be_invalid }
+      expect(paste).to be_invalid
+    end
+  end
+
+  describe "unexpired" do
+    let(:unexpired_paste) { FactoryGirl.create :paste, expires_at: Time.now + 1.week }
+    let(:expires_at_unset) { FactoryGirl.create :paste }
+
+    it "should only display unexpired pastes" do
+      paste.expires_at = Time.now - 1.week
+      expires_at_unset.expires_at = nil
+
+      expect(Paste.unexpired.count).to eq(2)
     end
   end
 end
