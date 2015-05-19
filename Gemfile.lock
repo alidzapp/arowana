@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/thoughtbot/shoulda-matchers.git
-  revision: 1cb872a2c52615c6789ea8757e108e9ecbd479d6
-  specs:
-    shoulda-matchers (3.0.0.alpha)
-      activesupport (>= 4.0.0)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -422,7 +415,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   select2-rails (~> 3.5.9.3)
-  shoulda-matchers!
   sidekiq
   sinatra
   spring (~> 1.3.6)

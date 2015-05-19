@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :comment do
-    user_id 1
-    paste_id 1
+    paste
     body "123"
+    user
   end
 end

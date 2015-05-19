@@ -5,7 +5,7 @@ class CommentsController < InheritedResources::Base
     @comment = current_user.comments.build(comment_params)
 
     if @comment.save
-      redirect_to paste_path(@comment.paste.id), flash: { success: 'Comment was successfully added.' }
+      redirect_to paste_path(@comment.paste), flash: { success: 'Comment was successfully added.' }
     else
       redirect_to root_path, flash: { success: 'Unable to add comment.' }
     end

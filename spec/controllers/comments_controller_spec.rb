@@ -7,13 +7,15 @@ RSpec.describe CommentsController, type: :controller do
     FactoryGirl.attributes_for(:comment)
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
-
-  let(:valid_session) { {} }
-
   it "should have a valid session" do
     expect(subject.current_user).to be_valid
+  end
+
+  describe "POST #create" do
+    it "creates a new Comment" do
+      expect {
+        post :create, { comment: valid_attributes}
+      }.to change(Comment, :count).by(1)
+    end
   end
 end
