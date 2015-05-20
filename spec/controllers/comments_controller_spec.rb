@@ -26,7 +26,7 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   context "with invalid attributes" do
-    describe "post #create" do
+    describe "POST #create" do
       it "redirects to root path" do
         post :create, comment: invalid_attributes
 
