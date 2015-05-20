@@ -14,9 +14,7 @@
     <span class="language subtitle">Language: <%= @paste.language %></span>
     <span class="expires-at subtitle">Expires: <%= @paste.expires_at.to_formatted_s(:short) unless @paste.expires_at.nil? %></span>
   </div>
-  <pre class="paste-body">
-    <%= @paste.body %>
-  </pre>
+  <pre class="paste-body"><%= @paste.body %></pre>
   <h3>Comments</h3>
   <%= render partial: "comments/list", locals: { comments: @paste.comments } %>
   <%= render "comments/form" %>
