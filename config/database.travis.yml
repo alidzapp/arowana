@@ -1,0 +1,5 @@
+test:
+  adapter: mysql2
+  database: arowana_test
+  username: travis
+  timeout: 5000

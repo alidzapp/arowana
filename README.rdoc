@@ -1,3 +1,5 @@
+{<img src="https://travis-ci.org/soosc/arowana.svg" alt="Build Status" />}[https://travis-ci.org/soosc/arowana]
+
 === Arowana
 
 Pastebin clone using Ruby on Rails

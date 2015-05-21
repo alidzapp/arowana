@@ -1,0 +1,15 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.2
+branches:
+  only:
+    - master
+env:
+  - DB=mysql
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - cp config/secrets.travis.yml config/secrets.yml
+  - mysql -e 'create database arowana_test;'
+notifications:
+  email: false
