@@ -1,9 +1,9 @@
 lock '3.4.0'
 
-set :application, 'albacore'
-set :repo_url, 'https://github.com/soosc/albacore.git'
+set :application, 'arowana'
+set :repo_url, 'https://github.com/soosc/arowana.git'
 set :branch, 'master'
-set :deploy_to, '/home/deploy/apps/albacore'
+set :deploy_to, '/home/deploy/apps/arowana'
 
 after "deploy", "foreman:export"
 after "deploy", "foreman:restart"
