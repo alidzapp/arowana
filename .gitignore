@@ -18,6 +18,7 @@
 
 config/deploy.rb
 config/deploy
+!config/deploy/production.example.rb
 config/database.yml
 config/secrets.yml
 
