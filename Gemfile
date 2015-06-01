@@ -22,8 +22,6 @@ gem 'kaminari', '~> 0.16.3'
 gem 'bootstrap-kaminari-views'
 gem 'gravtastic'
 gem 'foreman'
-gem 'thin', require: false
-gem 'faye'
 gem 'sidekiq'
 gem 'sinatra', require: nil
 

@@ -30,18 +30,4 @@ $(document).on('ready page:load', function () {
   $('.paste-body').each(function(i, block) {
     hljs.highlightBlock(block);
   });
-
-  // var client = new Faye.Client('/live');
-
-  // client.addExtension({
-  //   outgoing: function(message, callback) {
-  //     message.ext = message.ext || {};
-  //     message.ext.csrfToken = $('meta[name=csrf-token]').attr('content');
-  //     callback(message);
-  //   }
-  // });
-
-  // client.subscribe('/messages', function(message) {
-  //   alert('Got a message: ' + message.text);
-  // });
 });

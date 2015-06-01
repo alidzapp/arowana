@@ -24,12 +24,6 @@ module Arowana
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.middleware.insert_after ActionDispatch::Session::CookieStore,
-                                   Faye::RackAdapter,
-                                   :extensions => [CsrfProtection.new],
-                                   :mount      => '/live',
-                                   :timeout    => 25
-
     config.active_job.queue_adapter = :sidekiq
   end
 end
