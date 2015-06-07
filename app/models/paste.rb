@@ -8,12 +8,14 @@ class Paste < ActiveRecord::Base
     :django, :twig]
 
   scope :unexpired, -> { where('expires_at IS NULL OR expires_at > ?', Time.now) }
+  scope :expired, -> { where.not.unexpired }
 
   validates :language, inclusion: { in: Paste.languages.keys }
   validates :user_id, presence: true
   validates :name, length: { maximum: 128 }
   validates :body, presence: true, length: { in: 3..512 }
-  validate :expires_at_is_in_the_future, unless: "expires_at.nil?"
+  validate :expires_at_is_in_the_future,
+    unless: "expires_at.nil?"
 
   def user_email
     self.user.email

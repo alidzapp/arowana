@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :paste do
-    body "New Paste"
+    body { Faker::Lorem.sentence }
     user
   end
 end

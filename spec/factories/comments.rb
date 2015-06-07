@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :comment do
     paste
-    body "12345"
+    body { Faker::Lorem.sentence }
     user
   end
 end

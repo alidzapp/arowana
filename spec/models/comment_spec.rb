@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let(:comment) { FactoryGirl.build(:comment) }
+  let(:subject) { FactoryGirl.build(:comment) }
 
-  it { expect(comment).to be_valid }
+  it "has a valid factory" do
+    expect(subject).to be_valid
+  end
 end

@@ -1,25 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Paste, type: :model do
-  let(:paste) { FactoryGirl.create :paste }
+  let(:subject) { FactoryGirl.build :paste }
+
+  it "has a valid factory" do
+    expect(subject).to be_valid
+  end
 
   describe "#expires_at" do
     it "expires in the future" do
-      paste.expires_at = Time.now - 1.week
+      subject.expires_at = Time.now - 1.week
 
-      expect(paste).to be_invalid
+      expect(subject).to be_invalid
     end
-  end
 
-  describe "unexpired" do
-    let(:unexpired_paste) { FactoryGirl.create :paste, expires_at: Time.now + 1.week }
-    let(:expires_at_unset) { FactoryGirl.create :paste }
+    it "returns unexpired pastes" do
+      subject.save!
 
-    it "only displays unexpired pastes" do
-      paste.expires_at = Time.now - 1.week
-      expires_at_unset.expires_at = nil
-
-      expect(Paste.unexpired.count).to eq(2)
+      expect(Paste.unexpired.count).to eq(1)
     end
   end
 end
