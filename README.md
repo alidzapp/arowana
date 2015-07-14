@@ -4,10 +4,6 @@
 
 Pastebin clone using Ruby on Rails
 
-### Demo
-
-A demo can be found at [https://arowana.sooscdev.com](https://arowana.sooscdev.com)
-
 ### Deploy
 
 1. Clone the repository
